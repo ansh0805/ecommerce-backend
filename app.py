@@ -1,4 +1,5 @@
-﻿from flask import Flask, g
+﻿import os
+from flask import Flask
 from flask_cors import CORS
 from database import init_db, close_db
 from routes.products import products_bp
@@ -17,4 +18,5 @@ with app.app_context():
 def home():
     return {'message': 'Ecommerce API is running!'}
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=False, host='0.0.0.0', port=port)
