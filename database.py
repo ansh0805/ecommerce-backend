@@ -20,29 +20,17 @@ def init_db():
     cur.execute('DROP TABLE IF EXISTS products')
     cur.execute('''CREATE TABLE IF NOT EXISTS products (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT NOT NULL,
-        description TEXT,
-        price REAL NOT NULL,
-        original_price REAL,
-        stock INTEGER DEFAULT 0,
-        category TEXT,
-        image_url TEXT,
-        image2 TEXT,
-        image3 TEXT,
-        image4 TEXT,
-        rating REAL DEFAULT 4.0,
-        reviews INTEGER DEFAULT 0,
-        badge TEXT)''')
+        name TEXT NOT NULL, description TEXT,
+        price REAL NOT NULL, original_price REAL,
+        stock INTEGER DEFAULT 0, category TEXT,
+        image_url TEXT, image2 TEXT, image3 TEXT, image4 TEXT,
+        rating REAL DEFAULT 4.0, reviews INTEGER DEFAULT 0, badge TEXT)''')
     cur.execute('''CREATE TABLE IF NOT EXISTS cart (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        cart_id TEXT NOT NULL,
-        product_id INTEGER NOT NULL,
-        quantity INTEGER DEFAULT 1)''')
+        cart_id TEXT NOT NULL, product_id INTEGER NOT NULL, quantity INTEGER DEFAULT 1)''')
     cur.execute('''CREATE TABLE IF NOT EXISTS users (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT NOT NULL,
-        email TEXT UNIQUE NOT NULL,
-        password TEXT NOT NULL)''')
+        name TEXT NOT NULL, email TEXT UNIQUE NOT NULL, password TEXT NOT NULL)''')
     products = [
         ('Wireless Headphones','Premium noise-cancelling headphones with 30hr battery',2999,5999,50,'Electronics','https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600','https://images.unsplash.com/photo-1577174881658-0f30ed549adc?w=600','https://images.unsplash.com/photo-1487215078519-e21cc028cb29?w=600','https://images.unsplash.com/photo-1524678606370-a47ad25cb82a?w=600',4.5,2341,'Best Seller'),
         ('Running Shoes','Lightweight breathable running shoes for all terrain',1499,2999,30,'Footwear','https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600','https://images.unsplash.com/photo-1539185441755-769473a23570?w=600','https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=600','https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=600',4.3,1876,''),
